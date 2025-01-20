@@ -73,35 +73,22 @@ rf <- run_random_forest(snps, response = "phenotype", pvals = FALSE, num.trees =
 
 #func
 run_permutation_test <- function(snp_data, response_col, nperm = 1000, num_trees = 10000) {
-  # Orijinal model
   set.seed(123)
   original_rf <- run_random_forest(snp_data, response = response_col, pvals = FALSE, num.trees = num_trees)
   original_importance <- original_rf$models$.base_.base$model$variable.importance
   
-  # Genotip matrisini al
   genotype_matrix <- snp_data@geno.tables$gs
   
-  # Permütasyon için boş matris
   null_importance <- matrix(NA, nrow = length(original_importance), ncol = nperm)
   rownames(null_importance) <- names(original_importance)
   
-  # Permütasyon döngüsü
   for (i in 1:nperm) {
-    # Genotip verilerini karıştır
     permuted_genotype_matrix <- apply(genotype_matrix, 2, sample)
-    
-    # Karıştırılmış genotip verileriyle yeni bir `snpRdata` nesnesi oluştur
     permuted_snp_data <- snp_data
     permuted_snp_data@geno.tables$gs <- permuted_genotype_matrix
-    
-    # Karıştırılmış SNP verileriyle rastgele f çalıştır
     permuted_rf <- run_random_forest(permuted_snp_data, response = response_col, pvals = FALSE, num.trees = num_trees)
-    
-    # Permütasyon önem derecelerini kaydet
     null_importance[, i] <- permuted_rf$models$.base_.base$model$variable.importance
   }
-  
-  # Sonuçları döndür
   return(list(original_importance = original_importance, null_importance = null_importance))
 }
 permutation_results <- run_permutation_test(snps, "phenotype", nperm = 1000, num_trees = 10000)
