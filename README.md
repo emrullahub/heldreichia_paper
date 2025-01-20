@@ -35,23 +35,6 @@ heldreichia_paper/
 |— snpR_pca.R      # Script for PCA analysis of SNP data
 ```
 
-## Requirements
-
-Ensure the following R packages are installed:
-
-- `vcfR`
-- `adegenet`
-- `ade4`
-- `ggplot2`
-- `pheatmap`
-- `RColorBrewer`
-- `clusterProfiler`
-- `DOSE`
-- `enrichplot`
-- `ranger`
-- `snpR`
-- `tidyverse`
-- `ggrepel`
 
 ## Usage Instructions
 
