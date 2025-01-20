@@ -66,7 +66,7 @@ pop_centers <- pca_data %>%
   summarize(
     PC1 = mean(PC1),
     PC2 = mean(PC2),
-    phenotype = first(phenotype)  # Fenotip bilgisini ekle
+    phenotype = first(phenotype)
   )
 
 
@@ -75,52 +75,52 @@ pop_centers <- pca_data %>%
 
 # type 1
 ggplot(pca_data, aes(x = PC1, y = PC2, color = phenotype, shape = geography)) +
-  geom_point(size = 6, alpha = 0.8, stroke = 1.2) +  # Şekillerin dış hatları siyah
+  geom_point(size = 6, alpha = 0.8, stroke = 1.2) + 
   labs(
     title = NULL,
     x = paste0("PC1 (", round(pca_loadings[1], 2), "%)"),
     y = paste0("PC2 (", round(pca_loadings[2], 2), "%)")
   ) +
-  theme_minimal(base_size = 18) +  # Temel yazı boyutu artırıldı
+  theme_minimal(base_size = 18) + 
   theme(
-    axis.title = element_text(size = 18, face = "bold"),  # Daha büyük ve kalın eksen başlıkları
-    axis.text = element_text(size = 16),  # Daha büyük eksen değerleri
-    legend.title = element_text(size = 18, face = "bold"),  # Daha büyük lejant başlığı
-    legend.text = element_text(size = 16),  # Daha büyük lejant metni
-    panel.grid.major = element_blank(),  # Ana grid çizgileri kaldırıldı
+    axis.title = element_text(size = 18, face = "bold"),
+    axis.text = element_text(size = 16),
+    legend.title = element_text(size = 18, face = "bold"), 
+    legend.text = element_text(size = 16),
+    panel.grid.major = element_blank(), 
     panel.grid.minor = element_blank(),
-    axis.line = element_line(linewidth = 1.2)  # Daha belirgin eksen çizgileri
+    axis.line = element_line(linewidth = 1.2) 
   ) +
   scale_color_manual(
-    values = c("a" = "#F4A582", "b" = "#92C5DE", "c" = "#B2182B")  # Renkler phenotype için
+    values = c("a" = "#F4A582", "b" = "#92C5DE", "c" = "#B2182B") 
   ) +
   scale_shape_manual(
-    values = c("x" = 16, "y" = 17, "z" = 18)  # Şekiller coğrafyaya göre
+    values = c("x" = 16, "y" = 17, "z" = 18) 
   )
 
 
 
 # type 2
 ggplot(pca_data, aes(x = PC1, y = PC2, fill = phenotype, shape = geography)) +
-  geom_point(size = 6, alpha = 0.8, stroke = 1.2, color = "black") +  # Dış hatlar siyah, iç renkler fill ile
+  geom_point(size = 6, alpha = 0.8, stroke = 1.2, color = "black") +
   labs(
     title = NULL,
     x = paste0("PC1 (", round(pca_loadings[1], 2), "%)"),
     y = paste0("PC2 (", round(pca_loadings[2], 2), "%)")
   ) +
-  theme_minimal(base_size = 18) +  # Temel yazı boyutu artırıldı
+  theme_minimal(base_size = 18) + 
   theme(
-    axis.title = element_text(size = 18, face = "bold"),  # Daha büyük ve kalın eksen başlıkları
-    axis.text = element_text(size = 16),  # Daha büyük eksen değerleri
-    legend.title = element_text(size = 18, face = "bold"),  # Daha büyük lejant başlığı
-    legend.text = element_text(size = 16),  # Daha büyük lejant metni
-    panel.grid.major = element_blank(),  # Ana grid çizgileri kaldırıldı
+    axis.title = element_text(size = 18, face = "bold"), 
+    axis.text = element_text(size = 16),
+    legend.title = element_text(size = 18, face = "bold"),
+    legend.text = element_text(size = 16),
+    panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
-    axis.line = element_line(linewidth = 1.2)  # Daha belirgin eksen çizgileri
+    axis.line = element_line(linewidth = 1.2)
   ) +
   scale_fill_manual(
-    values = c("a" = "#F4A582", "b" = "#92C5DE", "c" = "#B2182B")  # Phenotype renkleri
+    values = c("a" = "#F4A582", "b" = "#92C5DE", "c" = "#B2182B") # phenotype
   ) +
   scale_shape_manual(
-    values = c("x" = 21, "y" = 24, "z" = 22)  # Şekiller coğrafyaya göre
+    values = c("x" = 21, "y" = 24, "z" = 22)  # geogpraphy
   )
