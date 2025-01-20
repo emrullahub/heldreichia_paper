@@ -25,17 +25,6 @@ This repository contains R scripts used in the study on Heldreichia species, foc
    - Integrates geographical and phenotypic metadata for enhanced scatter plots.
    - Provides insights into genetic differentiation and clustering.
 
-## File Structure
-
-```
-heldreichia_paper/
-|— dapcnet.R       # Script for DAPC analysis and SNP heatmap generation
-|— go.R            # Script for GO enrichment analysis
-|— randomf_snps.R  # Script for random forest analysis of SNPs
-|— snpR_pca.R      # Script for PCA analysis of SNP data
-```
-
-
 ## Usage Instructions
 
 1. **Prepare Input Data**
