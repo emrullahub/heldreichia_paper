@@ -1,7 +1,7 @@
 # Heldreichia Paper
 
 ## Overview
-This repository contains R scripts used in the study on Heldreichia species, focusing on SNP data analysis, population structure exploration, and gene enrichment. These scripts form the core analytical framework for the publication.
+This repository contains R scripts used in the study on *Heldreichia* species, focusing on SNP data analysis, population structure exploration, and gene enrichment. These scripts form the core analytical framework for the publication.
 
 ## Usage Instructions
 
